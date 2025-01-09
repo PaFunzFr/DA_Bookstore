@@ -1,7 +1,8 @@
 
-function renderAll() {
-
+function renderInit() {
+  renderFooter();
 }
+
 console.log(books);
 
 for (i = 0; i < books.length; i++) {

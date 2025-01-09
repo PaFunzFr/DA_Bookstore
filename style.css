@@ -1,0 +1,294 @@
+/* sintony-regular - latin */
+@font-face {
+    font-display: swap;
+    /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+    font-family: 'Sintony';
+    font-style: normal;
+    font-weight: 400;
+    src: url('./assets/fonts/sintony-v15-latin-regular.eot');
+    /* IE9 Compat Modes */
+    src: url('./assets/fonts/sintony-v15-latin-regular.eot?#iefix') format('embedded-opentype'),
+        /* IE6-IE8 */
+        url('./assets/fonts/sintony-v15-latin-regular.woff2') format('woff2'),
+        /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+        url('./assets/fonts/sintony-v15-latin-regular.woff') format('woff'),
+        /* Chrome 5+, Firefox 3.6+, IE 9+, Safari 5.1+, iOS 5+ */
+        url('./assets/fonts/sintony-v15-latin-regular.ttf') format('truetype'),
+        /* Chrome 4+, Firefox 3.5+, IE 9+, Safari 3.1+, iOS 4.2+, Android Browser 2.2+ */
+        url('./assets/fonts/sintony-v15-latin-regular.svg#Sintony') format('svg');
+    /* Legacy iOS */
+}
+
+/* sintony-700 - latin */
+@font-face {
+    font-display: swap;
+    /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+    font-family: 'Sintony';
+    font-style: normal;
+    font-weight: 700;
+    src: url('./assets/fonts/sintony-v15-latin-700.eot');
+    /* IE9 Compat Modes */
+    src: url('./assets/fonts/sintony-v15-latin-700.eot?#iefix') format('embedded-opentype'),
+        /* IE6-IE8 */
+        url('./assets/fonts/sintony-v15-latin-700.woff2') format('woff2'),
+        /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+        url('./assets/fonts/sintony-v15-latin-700.woff') format('woff'),
+        /* Chrome 5+, Firefox 3.6+, IE 9+, Safari 5.1+, iOS 5+ */
+        url('./assets/fonts/sintony-v15-latin-700.ttf') format('truetype'),
+        /* Chrome 4+, Firefox 3.5+, IE 9+, Safari 3.1+, iOS 4.2+, Android Browser 2.2+ */
+        url('./assets/fonts/sintony-v15-latin-700.svg#Sintony') format('svg');
+    /* Legacy iOS */
+}
+
+/* acme-regular - latin */
+@font-face {
+    font-display: swap;
+    /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+    font-family: 'Acme';
+    font-style: normal;
+    font-weight: 400;
+    src: url('./assets/fonts/acme-v25-latin-regular.eot');
+    /* IE9 Compat Modes */
+    src: url('./assets/fonts/acme-v25-latin-regular.eot?#iefix') format('embedded-opentype'),
+        /* IE6-IE8 */
+        url('./assets/fonts/acme-v25-latin-regular.woff2') format('woff2'),
+        /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+        url('./assets/fonts/acme-v25-latin-regular.woff') format('woff'),
+        /* Chrome 5+, Firefox 3.6+, IE 9+, Safari 5.1+, iOS 5+ */
+        url('./assets/fonts/acme-v25-latin-regular.ttf') format('truetype'),
+        /* Chrome 4+, Firefox 3.5+, IE 9+, Safari 3.1+, iOS 4.2+, Android Browser 2.2+ */
+        url('./assets/fonts/acme-v25-latin-regular.svg#Acme') format('svg');
+    /* Legacy iOS */
+}
+
+:root {
+    scroll-behavior: smooth;
+
+    /* VARIABLES */
+    --color-primary: #110e0c;
+    --color-secondary: #1d140c;
+    --color-tertiary: #0b131a;
+    --color-quaternary: rgb(227, 124, 45);
+    --color-quintial: rgba(63, 35, 26, 0.772);
+    --color-quaternary-trans: rgba(227, 163, 45, 0.653);
+    --color-fonts: #343a40;
+
+    --margin-vertical: 40px;
+    --margin-horizontal: 100px;
+}
+
+/* GENERAL */
+body {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    background-color: var(--color-primary);
+    color: white;
+    font-family: "Sintony";
+    min-height: 100vh;
+}
+
+h1 {
+    font-family: 'Acme';
+    font-size: 50px;
+    letter-spacing: 3px;
+    margin: 0;
+    padding: 0;
+}
+
+ul {
+    list-style-type: none;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+    transition: all 0.4s ease;
+}
+
+a:hover {
+    color: var(--color-quaternary);
+}
+
+.app-max-width {
+    display: flex;
+    width: 100%;
+    margin: 0 40px;
+    max-width: 1440px;
+}
+
+.hidden {
+    display: none;
+}
+
+.flex-shown {
+    display: flex;
+}
+
+/* HEADER */
+header {
+    display: flex;
+    justify-content: center;
+    height: 100px;
+    background-color: var(--color-secondary);
+}
+
+.header-container {
+    justify-content: space-between;
+}
+
+.header-left,
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.header-left:hover {
+    cursor: pointer;
+}
+
+.main-logo {
+    height: 70px;
+}
+
+.nav-bar {
+    display: flex;
+    gap: 20px;
+    height: 100%;
+    align-items: flex-end;
+    padding-bottom: 55px;
+}
+
+/* MAIN */
+main {
+    display: flex;
+    flex: 1;
+    justify-content: center;
+}
+
+.main-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+/* FOOTER */
+footer {
+    display: flex;
+    justify-content: center;
+    height: 100%;
+    background-color: var(--color-secondary);
+}
+
+.footer-right p {
+    text-align: center;
+}
+
+.footer-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.social-media-icons {
+    display: flex;
+    margin: 0;
+    padding: 0;
+    gap: 10px;
+}
+
+.social-media-icons img {
+    height: 30px;
+    transition: all 0.3s ease;
+}
+
+.social-media-icons img:hover {
+    transform: scale(1.07);
+}
+
+/* MEDIA QUERIES */
+.hide-mobile {
+    display: block;
+}
+
+@media screen and (max-width: 768px) {
+    .hide-mobile {
+        display: none;
+    }
+    header {
+        height: 80px;
+    }
+    .main-logo {
+        height: 50px;
+    }
+    .nav-bar {
+        align-items: center;
+        padding-bottom: 0px;
+    }
+    .img-container {
+        gap: calc(1vw + 5px) 2%;
+    }
+
+    .card-wrapper {
+        width: 31.3%;
+    }
+
+    .card-wrapper::after,
+    .card-wrapper::before {
+        padding: 4px;
+    }
+
+    .btn-close-slider {
+        display: flex;
+        width: 45px;
+        height: 45px;
+        border-radius: 14px;
+        font-size: 24px;
+    }
+
+    .overlay-content img {
+        max-height: 450px;
+    }
+
+    .slider li {
+        height: 450px;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .img-container {
+        gap: calc(1vw + 5px) 2%;
+    }
+
+    .card-wrapper {
+        width: 47%;
+    }
+
+    .card-wrapper::after,
+    .card-wrapper::before {
+        padding: 3px;
+    }
+
+    .overlay-content img {
+        max-height: 300px;
+    }
+
+    .slider li {
+        width: 70px;
+        height: 300px;
+    }
+}
+
+
+@media screen and (max-width: 400px) {
+    .overlay-content img {
+        max-height: 240px;
+    }
+
+    .slider li {
+        height: 240px;
+    }
+}

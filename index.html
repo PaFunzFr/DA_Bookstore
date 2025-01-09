@@ -4,20 +4,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bookstore</title>
+    <link rel="stylesheet" href="./style.css">
 </head>
-<body onload="renderAll()">
-    <h1>Bücherliste</h1>
-    <input name="" id="input" value=""></input>
-    <button onclick="addBook()">eintragen</button><br>
-    <tag name="Blub">Aktuell</tag>
-    <ul id="container">
-        <!-- conten-->
-    </ul>
-    <tag name="Blub">Archiviert</tag>
-    <ul id="containerArchived">
-        <!-- conten-->
-    </ul>
+<body onload="renderInit()">
+    <header class="header">
+        <section class="app-max-width header-container">
+            <a href="" class="header-left">
+                <img class="main-logo" src="./assets/img/01_header/logo.png" alt="Main Logo Fotogram">
+                <h1 class="title hide-mobile">EPIC BOOKSTORE</h1>
+            </a>
+            <div class="header-right">
+                <ul class="nav-bar">
+                    <li><a href="#footer">ABOUT</a></li>
+                </ul>
+            </div>
+        </section>
+    </header>
+    <main>
+        <section class="app-max-width main-container">
+            <div class="books-container" id="bookContent">
+               <!-- rendered books content here -->
+            </div>
+        </section>
+    </main>
+    <footer id="footer">
+    </footer>
 </body>
 <script src="db.js"></script>
+<script src="templates.js"></script>
 <script type="text/javascript" src="script.js"></script>
 </html>
