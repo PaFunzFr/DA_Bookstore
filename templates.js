@@ -1,7 +1,5 @@
-
 function renderFooter() {
-    let footerRef = document.getElementById('footer');
-    footerRef.innerHTML = `
+    document.getElementById('footer').innerHTML = `
         <section class="app-max-width footer-container">
             <div class="footer-left">
                 <ul class="social-media-icons">
@@ -29,8 +27,7 @@ function renderFooter() {
 }
 
 function renderHeader() {
-    let headerRef = document.getElementById('header');
-    headerRef.innerHTML = `
+    document.getElementById('header').innerHTML = `
         <section class="app-max-width header-container">
             <a href="" class="header-left">
                 <img class="main-logo" src="./assets/img/01_header/logo.png" alt="Main Logo Fotogram">
