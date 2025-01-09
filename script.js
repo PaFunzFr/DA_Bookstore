@@ -1,5 +1,6 @@
 function renderInit() {
   renderHeader();
+  renderBookCard();
   renderFooter();
 }
 
@@ -24,4 +25,8 @@ function showAllComments(i) {
       console.log(`Kommentar: ${bookComments[i].comment}`);
       console.log('--------------------');
     }
+}
+
+function emptyValue(event) {
+    event.target.value = '';
 }

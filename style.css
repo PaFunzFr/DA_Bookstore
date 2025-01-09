@@ -65,17 +65,43 @@
     scroll-behavior: smooth;
 
     /* VARIABLES */
-    --color-primary: #110e0c;
-    --color-secondary: #1d140c;
-    --color-tertiary: #0b131a;
-    --color-quaternary: rgb(227, 124, 45);
-    --color-quintial: rgba(63, 35, 26, 0.772);
+    --color-primary: #110c09;
+    --color-secondary: #07282a;
+    --color-tertiary: #324e67;
+    --color-quaternary: #947a50;;
+    --color-quintial: #7e6743;;
     --color-quaternary-trans: rgba(227, 163, 45, 0.653);
     --color-fonts: #343a40;
 
     --margin-vertical: 40px;
     --margin-horizontal: 100px;
+
+    --border-radius: 1vmax;
+
+    font-size: 14px;
 }
+
+/* SCROLL BAR */
+
+/* width */
+::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: rgba(63, 35, 26, 0.445);
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: var(--color-secondary);
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background:    var(--color-quaternary);
+  }
 
 /* GENERAL */
 body {
@@ -178,8 +204,117 @@ main {
 
 /* BOOKS */
 
+.books-container {
+    display: flex;
+    flex-direction: column;
+    gap: var(--margin-vertical);
+    margin: var(--margin-vertical) 0;
+    max-width: 500px;
+    width: 100%;
+}
 
+.book-card {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    background-color: var(--color-quaternary);
+    border-radius: var(--border-radius);
+    border: 5px solid var(--color-secondary);
+}
 
+.h-line {
+    width: 100%;
+    height: 2px;
+    background-color: var(--color-secondary);
+    opacity: 0.5;
+    margin: 14px 0;
+}
+
+.book-img {
+    height: 200px;
+    width: 200px;
+    aspect-ratio: 1/1;
+    align-self: center;
+}
+
+.book-infos {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 30px;
+    width: 100%;
+}
+.price {
+    color: rgb(155, 23, 23);
+}
+.likes {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    height: 100%;
+}
+
+.count-symbol {
+    width: 18px;
+    height: 18px;
+    background-color: rgb(155, 23, 23);
+    mask:
+    radial-gradient(at 70% 31%,#000 29%,#0000 30%),
+    radial-gradient(at 30% 31%,#000 29%,#0000 30%),
+    linear-gradient(#000 0 0) bottom/100% 50% no-repeat;
+    clip-path: polygon(-41% 0,50% 91%, 141% 0);
+    transition: all 0.3s ease-in-out;
+}
+
+.count-symbol:hover {
+    cursor: pointer;
+    background-color: rgb(185, 7, 7);
+    transform: scale(1.2);
+}
+
+.author-section,
+.comment-section {
+    display: flex;
+    margin-top: 10px;
+    width: 100%;
+    border-spacing: 0;
+}
+
+.comment-section {
+    height: 120px;
+    overflow-y: auto;
+    background-color: var(--color-quintial);
+    padding: 5px;
+}
+
+tr {
+    display: flex;
+    padding-bottom: 4px;
+}
+
+td {
+    display: flex;
+}
+
+td:first-child {
+    flex: 1;
+    min-width: 120px;
+}
+
+td:last-child {
+    flex: 2;
+}
+
+.postComment {
+    display: flex;
+}
+
+.postComment input {
+    flex: 3;
+}
+.postComment button {
+    flex: 1;
+}
 /* FOOTER */
 footer {
     display: flex;
