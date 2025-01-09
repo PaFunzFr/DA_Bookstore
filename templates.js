@@ -27,3 +27,20 @@ function renderFooter() {
             </div>
         </section> `
 }
+
+function renderHeader() {
+    let headerRef = document.getElementById('header');
+    headerRef.innerHTML = `
+        <section class="app-max-width header-container">
+            <a href="" class="header-left">
+                <img class="main-logo" src="./assets/img/01_header/logo.png" alt="Main Logo Fotogram">
+                <h1 class="title hide-mobile">EPIC BOOKSTORE</h1>
+            </a>
+            <div class="header-right">
+                <ul class="nav-bar">
+                    <li><a href="#footer">ABOUT</a></li>
+                </ul>
+            </div>
+        </section>
+    `;
+}

@@ -1,5 +1,5 @@
-
 function renderInit() {
+  renderHeader();
   renderFooter();
 }
 
