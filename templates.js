@@ -31,7 +31,7 @@ function renderHeader() {
         <section class="app-max-width header-container">
             <a href="" class="header-left">
                 <img class="main-logo" src="./assets/img/01_header/logo.png" alt="Main Logo Fotogram">
-                <h1 class="title hide-mobile">EPIC BOOKSTORE</h1>
+                <h1 class="title hide-mobile">Bookstore 2.0<span> | epic books for epic people</h1>
             </a>
             <div class="header-right">
                 <ul class="nav-bar">
