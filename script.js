@@ -1,13 +1,20 @@
+let comments = books;
+
+const commentStorage = JSON.parse(localStorage.getItem(`${comments} Title:`)) || [];
+const favouriteBookStorage = JSON.parse(localStorage.getItem(`${comments} Text:`)) || [];
+
 function renderInit() {
   renderHeader();
-  renderBookCard();
-  renderBookCard();
-  renderBookCard();
-  renderBookCard();
+  renderAllBookCards();
   renderFooter();
 }
 
-console.log(books);
+function renderAllBookCards() {
+  document.getElementById('bookContent').innerHTML = ``; 
+  for (let i = 0; i < books.length; i++) {
+    renderBookCard(i);
+  }
+};
 
 for (i = 0; i < books.length; i++) {
   console.log(`Buch: ${books[i].name}`);
@@ -40,17 +47,51 @@ function showFullHeart(event) {
 }
 
 function showEmptyHeart(event) {
-  event.target.src = "./assets/img/03_icons/heart-empty.png"
+    event.target.src = "./assets/img/03_icons/heart-empty.png"
 }
 
-isHeartClicked = false;
-
-function clickHeartIcon(event) {
-  if (!isHeartClicked) {
+function clickHeartIcon(event, index) {
+  if (!books[index].liked) {
+    makeFavourite(index);
     showFullHeart(event);
-    isHeartClicked = true;
+    popColorScale(event);
   } else {
-    showEmptyHeart(event);
-    isHeartClicked = false;
+    noFavourite(index)
+    popColorScale(event);
+    setTimeout(function() {
+      showEmptyHeart(event);
+    }, 200);
   }
-} 
+
+}
+
+function makeFavourite(index) {
+  isHeartClicked = true;
+  books[index].liked = true;
+  let currentLikes = ++books[index].likes;
+  document.getElementById(`likesCount${index}`).innerHTML = `${currentLikes}`;
+}
+
+function noFavourite(index) {
+  isHeartClicked = false;
+  books[index].liked = false;
+  books[index].likes --
+  document.getElementById(`likesCount${index}`).innerHTML = `${books[index].likes}`;
+}
+
+function popColorScale(event) {
+  event.target.style.filter = "invert(10%) sepia(45%) saturate(6620%) hue-rotate(339deg) brightness(200%) contrast(101%)";
+  event.target.style.transform = "scale(1.2)";
+  setTimeout(function() {
+    event.target.style.filter = "invert(10%) sepia(45%) saturate(6620%) hue-rotate(339deg) brightness(99%) contrast(101%)";
+    event.target.style.transform = "scale(1)";
+  }, 200);
+}
+
+function scaleOnHoverIn(event) {
+  event.target.style.transform = "scale(1.1)";
+}
+
+function scaleOnHoverOut(event) {
+  event.target.style.transform = "scale(1)";
+}

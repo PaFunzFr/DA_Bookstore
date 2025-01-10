@@ -126,6 +126,15 @@ h1 {
 h1 span {
     font-size: 24px;
 }
+
+h2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 56px;
+    text-align: center;
+}
+
 ul {
     list-style-type: none;
 }
@@ -234,9 +243,9 @@ main {
 
 .book-img {
     height: 200px;
-    width: 200px;
-    aspect-ratio: 1/1;
+    object-fit: cover;
     align-self: center;
+    filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.5));
 }
 
 .book-infos {
@@ -259,13 +268,12 @@ main {
 .count-symbol {
     width: 18px;
     height: 18px;
-    filter: invert(63%) sepia(45%) saturate(6620%) hue-rotate(329deg) brightness(99%) contrast(101%);
+    filter: invert(10%) sepia(45%) saturate(6620%) hue-rotate(339deg) brightness(99%) contrast(101%);
 }
 
 .count-symbol:hover {
     cursor: pointer;
-    background-color: rgb(185, 7, 7);
-    transform: scale(1.2);
+    transform: scale(1.1);
 }
 
 .author-section,
