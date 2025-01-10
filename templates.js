@@ -7,7 +7,7 @@ function renderHeader() {
             </a>
             <div class="header-right">
                 <ul class="nav-bar">
-                    <li><a href="#footer">ABOUT</a></li>
+                    <li><a href="">My Favourites</a></li>
                 </ul>
             </div>
         </section>
@@ -15,31 +15,31 @@ function renderHeader() {
 }
 
 function renderBookCard() {
-    document.getElementById('bookContent').innerHTML = `
+    document.getElementById('bookContent').innerHTML += `
      <span class="book-card">
-                    <h2 class="book-title">Test</h2>
+                    <h2 class="book-title">${books[0].name}</h2>
                     <div class="h-line"></div>
-                    <img src="" alt="" class="book-img" title="">
+                    <img src=${books[0].bookCover} alt="" class="book-img" title="">
                     <div class="h-line"></div>
                     <div class="book-infos">
-                        <h2 class="price">34,99€</h2>
+                        <h2 class="price">${books[0].price} €</h2>
                         <div class="likes">
-                            <p class="likes-count">3093</p>
-                            <i src="" alt="" class="count-symbol"></i>
+                            <p class="likes-count">${books[0].likes}</p>
+                            <img src="./assets/img/03_icons/heart-empty.png" alt="" class="count-symbol" onmouseover="showFullHeart(event)" onmouseout="showEmptyHeart(event)">
                         </div>
                     </div>
                     <table class="author-section">
                         <tr>
                             <td>Autor:</td>
-                            <td class="book-author">Gerakt</td>
+                            <td class="book-author">${books[0].author}</td>
                         </tr>
                         <tr>
                             <td>Veröffentlicht:</td>
-                            <td class="book-year">19478</td>
+                            <td class="book-year">${books[0].publishedYear}</td>
                         </tr>
                         <tr>
                             <td>Genre:</td>
-                            <td class="book-genre">4</td>
+                            <td class="book-genre">${books[0].genre}</td>
                         </tr>
                     </table>
                     <div class="h-line"></div>

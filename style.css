@@ -75,6 +75,7 @@
 
     --margin-vertical: 40px;
     --margin-horizontal: 100px;
+    --margin-books: 20px;
 
     --border-radius: 1vmax;
 
@@ -198,7 +199,6 @@ main {
 
 .main-container {
     display: flex;
-    flex-direction: column;
     align-items: center;
 }
 
@@ -206,17 +206,19 @@ main {
 
 .books-container {
     display: flex;
-    flex-direction: column;
-    gap: var(--margin-vertical);
+    gap: var(--margin-books);
     margin: var(--margin-vertical) 0;
-    max-width: 500px;
+    flex-wrap: wrap;
     width: 100%;
+    justify-content: center;
 }
 
 .book-card {
     display: flex;
     flex-direction: column;
     padding: 20px;
+    min-width: 240px;
+    max-width: 20.5%;
     background-color: var(--color-quaternary);
     border-radius: var(--border-radius);
     border: 5px solid var(--color-secondary);
@@ -257,13 +259,7 @@ main {
 .count-symbol {
     width: 18px;
     height: 18px;
-    background-color: rgb(155, 23, 23);
-    mask:
-    radial-gradient(at 70% 31%,#000 29%,#0000 30%),
-    radial-gradient(at 30% 31%,#000 29%,#0000 30%),
-    linear-gradient(#000 0 0) bottom/100% 50% no-repeat;
-    clip-path: polygon(-41% 0,50% 91%, 141% 0);
-    transition: all 0.3s ease-in-out;
+    filter: invert(63%) sepia(45%) saturate(6620%) hue-rotate(329deg) brightness(99%) contrast(101%);
 }
 
 .count-symbol:hover {
