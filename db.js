@@ -1,6 +1,6 @@
 let books = [
   {
-    "name": "THE STORMLIGHT ARCHIVE 1 - THE WAY OF KINGS",
+    "name": "The Stormlight Archive 1 - The Way of Kings",
     "author": "Brandon Sanderson",
     "likes": 3250,
     "liked": false,
@@ -32,23 +32,23 @@ let books = [
     ]
   },
   {
-    "name": "Der vergessene Pfad",
-    "author": "Maximilian Schwarz",
+    "name": "The Stormlight Archive 2 - Words of Radiance",
+    "author": "Brandon Sanderson",
     "likes": 980,
     "liked": false,
-    "price": 14.50,
-    "publishedYear": 2021,
+    "price": 19.99,
+    "publishedYear": 2014,
     "genre": "Fantasy",
     "bookCover": "./assets/img/",
     "comments": []
   },
   {
-    "name": "Die Farben des Himmels",
-    "author": "Laura Blau",
+    "name": "The Stormlight Archive 3 - Oathbringer",
+    "author": "Brandon Sanderson",
     "likes": 1520,
     "liked": false,
-    "price": 22.95,
-    "publishedYear": 2019,
+    "price": 19.99,
+    "publishedYear": 2017,
     "genre": "Romantik",
     "bookCover": "./assets/img/",
     "comments": [
@@ -75,11 +75,11 @@ let books = [
     ]
   },
   {
-    "name": "Das Rätsel der Zeit",
-    "author": "Alexander Weiss",
+    "name": "The Stormlight Archive 4 - Rhythm of War",
+    "author": "Brandon Sanderson",
     "likes": 750,
     "liked": false,
-    "price": 18.00,
+    "price": 19.99,
     "publishedYear": 2020,
     "genre": "Science-Fiction",
     "bookCover": "./assets/img/",
@@ -95,19 +95,19 @@ let books = [
     ]
   },
   {
-    "name": "Der letzte Wächter",
-    "author": "Sabine Grün",
+    "name": "The Stormlight Archive 5 - Wind and Truth",
+    "author": "Brandon Sanderson",
     "likes": 1300,
     "liked": false,
-    "price": 16.75,
-    "publishedYear": 2017,
+    "price": 19.99,
+    "publishedYear": 2024,
     "genre": "Fantasy",
     "bookCover": "./assets/img/",
     "comments": []
   },
   {
     "name": "Im Schatten des Mondes",
-    "author": "Philipp Silber",
+    "author": "Brandon Sanderson",
     "likes": 890,
     "liked": false,
     "price": 12.30,

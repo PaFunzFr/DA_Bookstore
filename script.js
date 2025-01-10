@@ -16,28 +16,6 @@ function renderAllBookCards() {
   }
 };
 
-for (i = 0; i < books.length; i++) {
-  console.log(`Buch: ${books[i].name}`);
-  console.log(`Autor: ${books[i].author}`);
-  console.log(`Likes: ${books[i].likes}`);
-  console.log(`Liked: ${books[i].liked}`); // true / false
-  console.log(`UVP: ${books[i].price}`);
-  console.log(`Veröffentlicht: ${books[i].publishedYear}`);
-  console.log(`Genre: ${books[i].genre}`);
-  console.log(`Bild: ${books[i].bookCover}`);
-  showAllComments(i);
-  console.log('--------------------');
-}
-
-function showAllComments(i) {
-    let bookComments = books[i].comments;
-    for (let index = 0; index < bookComments.length; index++) {
-      console.log(`Name: ${bookComments[index].name}`);
-      console.log(`Kommentar: ${bookComments[index].comment}`);
-      console.log('--------------------');
-    }
-}
-
 function emptyValue(event) {
     event.target.value = '';
 }
@@ -62,14 +40,13 @@ function clickHeartIcon(event, index) {
       showEmptyHeart(event);
     }, 200);
   }
-
 }
 
 function makeFavourite(index) {
   isHeartClicked = true;
   books[index].liked = true;
-  let currentLikes = ++books[index].likes;
-  document.getElementById(`likesCount${index}`).innerHTML = `${currentLikes}`;
+  books[index].likes ++;
+  document.getElementById(`likesCount${index}`).innerHTML = `${books[index].likes}`;
 }
 
 function noFavourite(index) {
@@ -95,3 +72,20 @@ function scaleOnHoverIn(event) {
 function scaleOnHoverOut(event) {
   event.target.style.transform = "scale(1)";
 }
+
+/* 
+
+for (i = 0; i < books.length; i++) {
+  console.log(`Buch: ${books[i].name}`);
+  console.log(`Autor: ${books[i].author}`);
+  console.log(`Likes: ${books[i].likes}`);
+  console.log(`Liked: ${books[i].liked}`); // true / false
+  console.log(`UVP: ${books[i].price}`);
+  console.log(`Veröffentlicht: ${books[i].publishedYear}`);
+  console.log(`Genre: ${books[i].genre}`);
+  console.log(`Bild: ${books[i].bookCover}`);
+  showAllComments(i);
+  console.log('--------------------');
+}
+
+*/
