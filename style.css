@@ -65,13 +65,13 @@
     scroll-behavior: smooth;
 
     /* VARIABLES */
-    --color-primary: #110c09;
-    --color-secondary: #07282a;
-    --color-tertiary: #324e67;
-    --color-quaternary: #947a50;;
-    --color-quintial: #7e6743;;
+    --color-primary: #d3d3d3;
+    --color-secondary: #303030;
+    --color-tertiary: #5f514d;
+    --color-quaternary: #989898;
+    --color-quintial: #a4998e;
     --color-quaternary-trans: rgba(227, 163, 45, 0.653);
-    --color-fonts: #343a40;
+    --color-fonts: #dbe7f1;
 
     --margin-vertical: 40px;
     --margin-horizontal: 100px;
@@ -79,7 +79,10 @@
 
     --border-radius: 1vmin;
 
+    --header-height: 100px;
+
     font-size: 14px;
+
 }
 
 /* SCROLL BAR */
@@ -87,22 +90,22 @@
 /* width */
 ::-webkit-scrollbar {
     width: 8px;
-  }
-  
-  /* Track */
-  ::-webkit-scrollbar-track {
+}
+
+/* Track */
+::-webkit-scrollbar-track {
     background: rgba(63, 35, 26, 0.445);
-  }
-  
-  /* Handle */
-  ::-webkit-scrollbar-thumb {
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
     background: var(--color-secondary);
-  }
-  
-  /* Handle on hover */
-  ::-webkit-scrollbar-thumb:hover {
-    background:    var(--color-quaternary);
-  }
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: var(--color-quaternary);
+}
 
 /* GENERAL */
 body {
@@ -110,7 +113,7 @@ body {
     flex-direction: column;
     margin: 0;
     background-color: var(--color-primary);
-    color: white;
+    color: var(--color-fonts);
     font-family: "Sintony";
     min-height: 100vh;
 }
@@ -129,10 +132,12 @@ h1 span {
 
 h2 {
     margin: 0;
+    font-family: 'Acme';
 }
 
 h3 {
     margin: 0px;
+    font-family: 'Acme';
 }
 
 .book-title {
@@ -176,9 +181,13 @@ a:hover {
 /* HEADER */
 header {
     display: flex;
+    position: fixed;
+    width: 100%;
     justify-content: center;
-    height: 100px;
+    height: var(--header-height);
     background-color: var(--color-secondary);
+    border-bottom: 2px solid var(--color-quaternary);
+    z-index: 99;
 }
 
 .header-container {
@@ -202,17 +211,47 @@ header {
 
 .nav-bar {
     display: flex;
-    gap: 20px;
+    gap: 10px;
     height: 100%;
     align-items: flex-end;
     padding-bottom: 55px;
 }
 
+/* LOGIN */
+.welcome-login {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    margin-top: var(--header-height);
+    width: 100%;
+    height: calc(100vh - var(--header-height));
+    background-color: var(--color-secondary);
+    z-index: 3;
+    text-align: center;
+}
+
+.highlighted {
+    font-weight: bolder;
+    color: red;
+}
+
+.login-input {
+    resize: none;
+    height: 20px;
+}
+
+.login-button {
+    margin-top: 30px;
+}
+
 /* MAIN */
 main {
-    display: flex;
+    display: none;
     flex: 1;
     justify-content: center;
+    margin-top: var(--header-height);
 }
 
 .main-container {
@@ -221,7 +260,6 @@ main {
 }
 
 /* BOOKS */
-
 .books-container {
     display: flex;
     gap: var(--margin-books);
@@ -239,13 +277,14 @@ main {
     max-width: 23.3%;
     background-color: var(--color-quaternary);
     border-radius: var(--border-radius);
-    border: 5px solid var(--color-secondary);
+    border: 3px solid var(--color-tertiary);
+    filter: drop-shadow(0px 0px 3px var(--color-tertiary));
 }
 
 .h-line {
     width: 100%;
     height: 2px;
-    background-color: var(--color-secondary);
+    background-color: var(--color-tertiary);
     opacity: 0.5;
     margin: 14px 0;
 }
@@ -254,13 +293,13 @@ main {
     height: 200px;
     object-fit: cover;
     align-self: center;
-    filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.5));
+    filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.5));
     transition: all 0.4s ease-in-out;
 }
 
 .book-img:hover {
     transform: scale(1.02);
-} 
+}
 
 .book-infos {
     display: flex;
@@ -269,9 +308,11 @@ main {
     height: 30px;
     padding: 0 8px;
 }
+
 .price {
     color: rgb(155, 23, 23);
 }
+
 .likes {
     display: flex;
     align-items: center;
@@ -295,6 +336,7 @@ main {
 h3 {
     padding: 0 8px;
 }
+
 .author-section,
 .comment-section {
     display: flex;
@@ -334,9 +376,11 @@ td:last-child {
 .postComment input {
     flex: 3;
 }
+
 .postComment button {
     flex: 1;
 }
+
 /* FOOTER */
 footer {
     display: flex;
@@ -381,16 +425,20 @@ footer {
     .hide-mobile {
         display: none;
     }
+
     header {
         height: 80px;
     }
+
     .main-logo {
         height: 50px;
     }
+
     .nav-bar {
         align-items: center;
         padding-bottom: 0px;
     }
+
     .img-container {
         gap: calc(1vw + 5px) 2%;
     }

@@ -39,7 +39,7 @@ let books = [
     "price": 19.99,
     "publishedYear": 2014,
     "genre": "Fantasy",
-    "bookCover": "./assets/img/",
+    "bookCover": "./assets/img/04_bookcover/stormlight_archive_2.png",
     "comments": []
   },
   {
@@ -50,7 +50,7 @@ let books = [
     "price": 19.99,
     "publishedYear": 2017,
     "genre": "Romantik",
-    "bookCover": "./assets/img/",
+    "bookCover": "./assets/img/04_bookcover/stormlight_archive_3.png",
     "comments": [
       {
         "name": "LeserPeter",
@@ -82,7 +82,7 @@ let books = [
     "price": 19.99,
     "publishedYear": 2020,
     "genre": "Science-Fiction",
-    "bookCover": "./assets/img/",
+    "bookCover": "./assets/img/04_bookcover/stormlight_archive_4.png",
     "comments": [
       {
         "name": "BuchKenner",
@@ -102,7 +102,7 @@ let books = [
     "price": 19.99,
     "publishedYear": 2024,
     "genre": "Fantasy",
-    "bookCover": "./assets/img/",
+    "bookCover": "./assets/img/04_bookcover/stormlight_archive_5.png",
     "comments": []
   },
   {

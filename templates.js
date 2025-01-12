@@ -7,7 +7,9 @@ function renderHeader() {
             </a>
             <div class="header-right">
                 <ul class="nav-bar">
-                    <li><a href="">My Favourites</a></li>
+                    <li><a href="">Favourites</a></li>
+                    <li>|</li>
+                    <li>User: PETER</li>
                 </ul>
             </div>
         </section>

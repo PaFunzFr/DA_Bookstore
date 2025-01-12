@@ -10,7 +10,13 @@
     <header class="header" id="header">
         <!-- rendered header -->
     </header>
-    <main>
+    <section class="welcome-login" id="loginSection">
+        <h2 class="welcome-title">Welcome to My Library</h2>
+        <p>Please login with your <span class="highlighted">Username</span><br>to write comments</p>
+        <input class="login-input" id="loginName"></input>
+        <button class="login-button" onclick="loginUser()">Login</button>
+    </section>
+    <main id="mainSection">
         <section class="app-max-width main-container">
             <div class="books-container" id="bookContent">
                <!-- rendered book-cards -->

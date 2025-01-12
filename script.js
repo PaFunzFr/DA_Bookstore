@@ -4,6 +4,7 @@ const commentStorage = JSON.parse(localStorage.getItem(`${comments} Title:`)) ||
 const favouriteBookStorage = JSON.parse(localStorage.getItem(`${comments} Text:`)) || [];
 
 function renderInit() {
+  //checkUserLogin()
   renderHeader();
   renderAllBookCards();
   renderFooter();
@@ -71,6 +72,25 @@ function scaleOnHoverIn(event) {
 
 function scaleOnHoverOut(event) {
   event.target.style.transform = "scale(1)";
+}
+
+
+function loginUser() {
+  closeLoginMenu();
+}
+
+/*
+function checkUserLogin() {
+  if (document.getElementById('loginName').value === "") {
+    closeLoginMenu();
+  }
+}
+
+*/
+
+function closeLoginMenu() {
+  document.getElementById('loginSection').style.display = "none";
+  document.getElementById('mainSection').style.display = "flex";
 }
 
 /* 
