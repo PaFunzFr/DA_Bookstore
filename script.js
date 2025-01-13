@@ -1,12 +1,13 @@
 function renderInit() {
-  checkUserLogin()
   renderHeader();
   renderAllBookCards();
   renderFooter();
   loadDataBase()
+  checkUserLogin()
 }
 
 // initialize Comments to localstorage
+// only adding if there is a new key for storage => (!localStorage.getItem(key))
 function loadDataBase() {
   for (i = 0; i < books.length; i++) {
     let key = `bookComments${i}`;
@@ -50,9 +51,11 @@ function updateComments(index, object) {
 
 function loginUser() {
   let userName = document.getElementById('loginName').value;
+  if (userName != "") {
   localStorage.setItem("user", JSON.stringify(userName));
   closeLoginMenu();
   renderInit()
+  }
 }
 
 function renderAllBookCards() {
@@ -121,12 +124,19 @@ function scaleOnHoverOut(event) {
 
 function checkUserLogin() {
   let user = JSON.parse(localStorage.getItem("user"));
-  if (user) {
+  if (user && user !== "") {
     closeLoginMenu();
-    console.log("User is logged in.");
+  } else {
+    hideElementsHeader();
   }
 }
 
+function hideElementsHeader() {
+  const hiddenElements = document.querySelectorAll(".hide-on-logout");
+  for (let i = 0; i < hiddenElements.length; i++) {
+    hiddenElements[i].style.display = "none";
+  }
+}
 function closeLoginMenu() {
   document.getElementById('loginSection').style.display = "none";
   document.getElementById('mainSection').style.display = "flex";

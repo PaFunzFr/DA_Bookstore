@@ -7,11 +7,12 @@ function renderHeader() {
             </a>
             <div class="header-right">
                 <ul class="nav-bar">
-                    <li><a href="">Favorites</a></li>
-                    <li>|</li>
-                    <li id="currentUser">${JSON.parse(localStorage.getItem("user")) || []}</li>
-                    <li>|</li>
-                    <li id="logoutBtn" class="logout-button" onclick="userLogout()">logout</li>
+                    <li class="hide-mobile"><a href="">Favorites</a></li>
+                    <li class="show-mobile"><img class="count-symbol" src="./assets/img/03_icons/heart-full.png" alt=""></li>
+                    <li class="hide-on-logout">|</li>
+                    <li id="currentUser" class="hide-on-logout">${JSON.parse(localStorage.getItem("user")) || []}</li>
+                    <li class="hide-on-logout">|</li>
+                    <li id="logoutBtn" class="logout-button hide-on-logout" onclick="userLogout()">logout</li>
                 </ul>
             </div>
         </section>
