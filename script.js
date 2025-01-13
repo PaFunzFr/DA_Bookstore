@@ -1,13 +1,5 @@
-let commentsText = [];
-let bookComments = {};
-
-/*
-const commentStorage = JSON.parse(localStorage.getItem(`${commentsRef} Title:`)) || [];
-const favouriteBookStorage = JSON.parse(localStorage.getItem(`${commentsRef} Text:`)) || [];
-*/
-
 function renderInit() {
-  //checkUserLogin()
+  checkUserLogin()
   renderHeader();
   renderAllBookCards();
   renderFooter();
@@ -18,15 +10,17 @@ function renderInit() {
 function loadDataBase() {
   for (i = 0; i < books.length; i++) {
     let key = `bookComments${i}`;
-    localStorage.setItem(key, JSON.stringify(books[i].comments));
-    console.log(books[i].comments);
+    if (!localStorage.getItem(key)) {
+      localStorage.setItem(key, JSON.stringify(books[i].comments));
+    }
   }
 }
 
-function showAllComments(currentBookIndex) {
-  let bookComments = books[currentBookIndex].comments || [];
+function showAllComments(bookKeyIndex) {
+  let bookKeyKey = `bookComments${bookKeyIndex}`;
+  let bookComments = JSON.parse(localStorage.getItem(bookKeyKey)) || [];
   let commentsHTML = ''; 
-  for (let index = 0; index < bookComments.length; index++) {
+  for (let index = bookComments.length - 1; index >= 0; index--) {
       commentsHTML += `
           <tr>
               <td class="comment-author">${bookComments[index].name}:</td>
@@ -37,22 +31,29 @@ function showAllComments(currentBookIndex) {
 }
 
 function postComment(index) {
-  let currentBook = `bookComments${index}`;
   let commentInput = document.getElementById(`commentField${index}`).value;
-  // Lade bestehende Kommentare aus dem localStorage
-  let existingComments = JSON.parse(localStorage.getItem(currentBook)) || [];
-  
-  // Füge den neuen Kommentar hinzu
-  existingComments.push(commentInput);
-  
-  // Speichere die aktualisierte Liste zurück in den localStorage
-  localStorage.setItem(currentBook, JSON.stringify(existingComments));
+  let newComment = {
+    name: JSON.parse(localStorage.getItem("user")),
+    comment: commentInput
+  };
+  updateComments(index, newComment);
+  document.getElementById(`commentField${index}`).value = '';
+  renderInit()
 }
 
-function saveToLocalStorage(key, value) {
-
+function updateComments(index, object) {
+  let bookKey = `bookComments${index}`;
+  let storedComments = JSON.parse(localStorage.getItem(bookKey)) || [];
+  storedComments.push(object);
+  localStorage.setItem(bookKey, JSON.stringify(storedComments));
 }
 
+function loginUser() {
+  let userName = document.getElementById('loginName').value;
+  localStorage.setItem("user", JSON.stringify(userName));
+  closeLoginMenu();
+  renderInit()
+}
 
 function renderAllBookCards() {
   document.getElementById('bookContent').innerHTML = ``; 
@@ -118,37 +119,26 @@ function scaleOnHoverOut(event) {
   event.target.style.transform = "scale(1)";
 }
 
-function loginUser() {
-  closeLoginMenu();
-}
-
-/*
 function checkUserLogin() {
-  if (document.getElementById('loginName').value === "") {
+  let user = JSON.parse(localStorage.getItem("user"));
+  if (user) {
     closeLoginMenu();
+    console.log("User is logged in.");
   }
 }
-
-*/
 
 function closeLoginMenu() {
   document.getElementById('loginSection').style.display = "none";
   document.getElementById('mainSection').style.display = "flex";
 }
 
-/* 
-
-for (i = 0; i < books.length; i++) {
-  console.log(`Buch: ${books[i].name}`);
-  console.log(`Autor: ${books[i].author}`);
-  console.log(`Likes: ${books[i].likes}`);
-  console.log(`Liked: ${books[i].liked}`); // true / false
-  console.log(`UVP: ${books[i].price}`);
-  console.log(`Veröffentlicht: ${books[i].publishedYear}`);
-  console.log(`Genre: ${books[i].genre}`);
-  console.log(`Bild: ${books[i].bookCover}`);
-  showAllComments(i);
-  console.log('--------------------');
+function showLoginMenu() {
+  document.getElementById('loginSection').style.display = "flex";
+  document.getElementById('mainSection').style.display = "none";
 }
 
-*/
+function userLogout() {
+  localStorage.removeItem("user");
+  showLoginMenu()
+  renderInit()
+}

@@ -9,7 +9,9 @@ function renderHeader() {
                 <ul class="nav-bar">
                     <li><a href="">Favorites</a></li>
                     <li>|</li>
-                    <li>User: PETER</li>
+                    <li id="currentUser">${JSON.parse(localStorage.getItem("user")) || []}</li>
+                    <li>|</li>
+                    <li id="logoutBtn" class="logout-button" onclick="userLogout()">logout</li>
                 </ul>
             </div>
         </section>
