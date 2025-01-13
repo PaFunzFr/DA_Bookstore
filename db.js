@@ -36,7 +36,7 @@ let books = [
     "author": "Brandon Sanderson",
     "likes": 980,
     "liked": false,
-    "price": 19.99,
+    "price": 24.99,
     "publishedYear": 2014,
     "genre": "Fantasy",
     "bookCover": "./assets/img/04_bookcover/stormlight_archive_2.png",
@@ -47,9 +47,9 @@ let books = [
     "author": "Brandon Sanderson",
     "likes": 1520,
     "liked": false,
-    "price": 19.99,
+    "price": 24.99,
     "publishedYear": 2017,
-    "genre": "Romantik",
+    "genre": "Fantasy",
     "bookCover": "./assets/img/04_bookcover/stormlight_archive_3.png",
     "comments": [
       {
@@ -79,9 +79,9 @@ let books = [
     "author": "Brandon Sanderson",
     "likes": 750,
     "liked": false,
-    "price": 19.99,
+    "price": 14.99,
     "publishedYear": 2020,
-    "genre": "Science-Fiction",
+    "genre": "Fantasy",
     "bookCover": "./assets/img/04_bookcover/stormlight_archive_4.png",
     "comments": [
       {
@@ -99,7 +99,7 @@ let books = [
     "author": "Brandon Sanderson",
     "likes": 1300,
     "liked": false,
-    "price": 19.99,
+    "price": 29.99,
     "publishedYear": 2024,
     "genre": "Fantasy",
     "bookCover": "./assets/img/04_bookcover/stormlight_archive_5.png",

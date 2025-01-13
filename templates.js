@@ -83,7 +83,7 @@ function renderFooter() {
                 </ul>
             </div>
             <div class="footer-right" id="footer">
-                <p>&copy; 2024 Epic Bookstore | Pictures by Patrick Frey. All rights reserved.</p>
+                <p>&copy; 2025 by Patrick Frey | it's a personal library, no shop.</p>
             </div>
         </section> `
 }
