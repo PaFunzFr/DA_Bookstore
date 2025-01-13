@@ -1,14 +1,58 @@
-let comments = books;
+let commentsText = [];
+let bookComments = {};
 
-const commentStorage = JSON.parse(localStorage.getItem(`${comments} Title:`)) || [];
-const favouriteBookStorage = JSON.parse(localStorage.getItem(`${comments} Text:`)) || [];
+/*
+const commentStorage = JSON.parse(localStorage.getItem(`${commentsRef} Title:`)) || [];
+const favouriteBookStorage = JSON.parse(localStorage.getItem(`${commentsRef} Text:`)) || [];
+*/
 
 function renderInit() {
   //checkUserLogin()
   renderHeader();
   renderAllBookCards();
   renderFooter();
+  loadDataBase()
 }
+
+// initialize Comments to localstorage
+function loadDataBase() {
+  for (i = 0; i < books.length; i++) {
+    let key = `bookComments${i}`;
+    localStorage.setItem(key, JSON.stringify(books[i].comments));
+    console.log(books[i].comments);
+  }
+}
+
+function showAllComments(currentBookIndex) {
+  let bookComments = books[currentBookIndex].comments || [];
+  let commentsHTML = ''; 
+  for (let index = 0; index < bookComments.length; index++) {
+      commentsHTML += `
+          <tr>
+              <td class="comment-author">${bookComments[index].name}:</td>
+              <td class="comment-text">${bookComments[index].comment}</td>
+          </tr>`;
+  }
+  return commentsHTML;
+}
+
+function postComment(index) {
+  let currentBook = `bookComments${index}`;
+  let commentInput = document.getElementById(`commentField${index}`).value;
+  // Lade bestehende Kommentare aus dem localStorage
+  let existingComments = JSON.parse(localStorage.getItem(currentBook)) || [];
+  
+  // Füge den neuen Kommentar hinzu
+  existingComments.push(commentInput);
+  
+  // Speichere die aktualisierte Liste zurück in den localStorage
+  localStorage.setItem(currentBook, JSON.stringify(existingComments));
+}
+
+function saveToLocalStorage(key, value) {
+
+}
+
 
 function renderAllBookCards() {
   document.getElementById('bookContent').innerHTML = ``; 
@@ -73,7 +117,6 @@ function scaleOnHoverIn(event) {
 function scaleOnHoverOut(event) {
   event.target.style.transform = "scale(1)";
 }
-
 
 function loginUser() {
   closeLoginMenu();

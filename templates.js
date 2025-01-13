@@ -3,11 +3,11 @@ function renderHeader() {
         <section class="app-max-width header-container">
             <a href="" class="header-left">
                 <img class="main-logo" src="./assets/img/01_header/logo.png" alt="Main Logo Fotogram">
-                <h1 class="title hide-mobile">My Library<span> | epic books with epic stories</h1>
+                <h1 class="title hide-mobile">My Library</h1>
             </a>
             <div class="header-right">
                 <ul class="nav-bar">
-                    <li><a href="">Favourites</a></li>
+                    <li><a href="">Favorites</a></li>
                     <li>|</li>
                     <li>User: PETER</li>
                 </ul>
@@ -46,29 +46,15 @@ function renderBookCard(index) {
                     </table>
                     <div class="h-line"></div>
                     <h3>Kommentare</h3>
-                    <table class="comment-section">
+                    <table class="comment-section id="commentsContainer${index}">
                         ${showAllComments(index)}
                     </table>
                     <div class="postComment">
-                            <input id="commentField" onclick="emptyValue(event)" value="post your Comment..."></input>
-                            <button onclick="postComment()">Senden</button>
+                            <input id="commentField${index}" onclick="emptyValue(event)" value="post your Comment..."></input>
+                            <button onclick="postComment(${index})">Senden</button>
                     </div>
                 </span>
     ` 
-}
-
-
-function showAllComments(currentBookIndex) {
-    let bookComments = books[currentBookIndex].comments || [];
-    let commentsHTML = ''; 
-    for (let index = 0; index < bookComments.length; index++) {
-        commentsHTML += `
-            <tr>
-                <td class="comment-author">${bookComments[index].name}:</td>
-                <td class="comment-text">${bookComments[index].comment}</td>
-            </tr>`;
-    }
-    return commentsHTML;
 }
 
 function renderFooter() {
