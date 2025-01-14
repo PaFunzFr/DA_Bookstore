@@ -7,8 +7,8 @@ function renderHeader() {
             </a>
             <div class="header-right">
                 <ul class="nav-bar">
-                    <li class="hide-mobile hide-on-logout"><a href="">Favorites</a></li>
-                    <li class="show-mobile hide-on-logout"><img class="count-symbol" src="./assets/img/03_icons/heart-full.png" alt=""></li>
+                    <li class="favorite-btn hide-mobile hide-on-logout" onclick="showFavorites()">Favorites</li>
+                    <li class="show-mobile hide-on-logout" onclick="showFavorites()"><img class="count-symbol" src="./assets/img/03_icons/heart-full.png" alt=""></li>
                     <li class="hide-on-logout">|</li>
                     <li id="currentUser" class="hide-on-logout">${JSON.parse(localStorage.getItem("user")) || []}</li>
                     <li class="hide-on-logout">|</li>
@@ -30,7 +30,7 @@ function renderLoginScreen() {
 
 function renderBookCard(index) {
     document.getElementById('bookContent').innerHTML += `
-     <span class="book-card">
+    <span class="book-card" id="bookCard${index}">
         <h2 class="book-title">${books[index].name}</h2>
         <div class="h-line"></div>
         <img src=${books[index].bookCover} alt="" class="book-img" title="">
@@ -38,8 +38,8 @@ function renderBookCard(index) {
         <div class="book-infos">
             <h2 class="price">${books[index].price} €</h2>
             <div class="likes">
-                <p id="likesCount${index}"class="likes-count">${books[index].likes}</p>
-                <img src="./assets/img/03_icons/heart-empty.png" alt="" class="count-symbol" onclick="clickHeartIcon(event, ${index})" onmouseover="scaleOnHoverIn(event)" onmouseleave="scaleOnHoverOut(event)">
+                <p id="likesCount${index}"class="likes-count">${JSON.parse(localStorage.getItem(`bookLikes${index}`)).likes}</p>
+                <img id="heartIcon${index}" src="${JSON.parse(localStorage.getItem(`bookLikes${index}`)).heartIcon}" alt="" class="count-symbol" onclick="clickHeartIcon(event, ${index})" onmouseover="scaleOnHoverIn(event)" onmouseleave="scaleOnHoverOut(event)">
             </div>
         </div>
         <table class="author-section">
@@ -62,8 +62,8 @@ function renderBookCard(index) {
             ${showAllComments(index)}
         </table>
         <div class="postComment">
-                <input id="commentField${index}" onclick="emptyValue(event)" value="post your Comment..."></input>
-                <button onclick="postComment(${index})">submit</button>
+                <input class="comment-input" id="commentField${index}" onclick="emptyValue(event)" value="post your Comment..."></input>
+                <button class="comment-btn" onclick="postComment(${index})">submit</button>
         </div>
     </span>
     ` 

@@ -1,26 +1,34 @@
 function renderInit() {
   renderHeader();
   renderLoginScreen();
+  loadDataBase();
   renderAllBookCards();
   renderFooter();
-  loadDataBase()
   checkUserLogin()
 }
 
-// initialize Comments to localstorage
+// initialize json data (likes & comments) to localStorage
 // only adding if there is a new key for storage => (!localStorage.getItem(key))
 function loadDataBase() {
   for (i = 0; i < books.length; i++) {
-    let key = `bookComments${i}`;
-    if (!localStorage.getItem(key)) {
-      localStorage.setItem(key, JSON.stringify(books[i].comments));
+    let likeObject = {
+      likes : books[i].likes,
+      liked : books[i].liked,
+      heartIcon : "./assets/img/03_icons/heart-empty.png"
+    }
+    if (!localStorage.getItem(`bookLikes${i}`)) {
+    localStorage.setItem(`bookLikes${i}`, JSON.stringify(likeObject))
+    }
+    if (!localStorage.getItem(`bookComments${i}`)) {
+      localStorage.setItem(`bookComments${i}`, JSON.stringify(books[i].comments));
     }
   }
 }
 
+// load all comments from localStorage
 function showAllComments(bookKeyIndex) {
-  let bookKeyKey = `bookComments${bookKeyIndex}`;
-  let bookComments = JSON.parse(localStorage.getItem(bookKeyKey)) || [];
+  let bookKey = `bookComments${bookKeyIndex}`;
+  let bookComments = JSON.parse(localStorage.getItem(bookKey)) || [];
   let commentsHTML = ''; 
   for (let index = bookComments.length - 1; index >= 0; index--) {
       commentsHTML += `
@@ -79,12 +87,12 @@ function showEmptyHeart(event) {
 }
 
 function clickHeartIcon(event, index) {
-  if (!books[index].liked) {
-    makeFavourite(index);
-    showFullHeart(event);
+  let likesData = JSON.parse(localStorage.getItem(`bookLikes${index}`));
+  if (!likesData.liked) {
+    makeFavorite(index , likesData);
     popColorScale(event);
   } else {
-    noFavourite(index)
+    noFavorite(index, likesData)
     popColorScale(event);
     setTimeout(function() {
       showEmptyHeart(event);
@@ -92,18 +100,22 @@ function clickHeartIcon(event, index) {
   }
 }
 
-function makeFavourite(index) {
+function makeFavorite(index, likesData) {
   isHeartClicked = true;
-  books[index].liked = true;
-  books[index].likes ++;
-  document.getElementById(`likesCount${index}`).innerHTML = `${books[index].likes}`;
+  let currentLikes = likesData.likes;
+  currentLikes ++
+  let likeObject = likeObjectTemplate(currentLikes, true, "full")
+  localStorage.setItem(`bookLikes${index}`, JSON.stringify(likeObject));
+  renderAllBookCards(index);
 }
 
-function noFavourite(index) {
+function noFavorite(index, likesData) {
   isHeartClicked = false;
-  books[index].liked = false;
-  books[index].likes --
-  document.getElementById(`likesCount${index}`).innerHTML = `${books[index].likes}`;
+  let currentLikes = likesData.likes;
+  currentLikes --
+  let likeObject = likeObjectTemplate(currentLikes, false, "empty")
+  localStorage.setItem(`bookLikes${index}`, JSON.stringify(likeObject));
+  showFavorites()
 }
 
 function popColorScale(event) {
@@ -150,6 +162,34 @@ function showLoginMenu() {
 
 function userLogout() {
   localStorage.removeItem("user");
+  resetFavorites();
   showLoginMenu()
   renderInit()
+}
+
+function resetFavorites() {
+  for (i = 0; i < books.length; i ++) {
+    let likesData = JSON.parse(localStorage.getItem(`bookLikes${i}`));
+    let currentLikes = likesData.likes;
+    let likeObject = likeObjectTemplate(currentLikes, false, "empty")
+    localStorage.setItem(`bookLikes${i}`, JSON.stringify(likeObject));
+    renderAllBookCards(i);
+  }
+}
+
+function likeObjectTemplate(likeCount, likeStatus, heartStatus) {
+  return {
+    likes : likeCount,
+    liked : likeStatus,
+    heartIcon : `./assets/img/03_icons/heart-${heartStatus}.png`
+  }
+}
+
+function showFavorites() {
+  for (i = 0; i < books.length; i++) {
+    let likesData = JSON.parse(localStorage.getItem(`bookLikes${i}`));
+    if (!likesData.liked) {
+      document.getElementById(`bookCard${i}`).style.display = "none";
+    } 
+  }
 }

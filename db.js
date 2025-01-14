@@ -106,14 +106,14 @@ let books = [
     "comments": []
   },
   {
-    "name": "Im Schatten des Mondes",
-    "author": "Brandon Sanderson",
-    "likes": 890,
+    "name": "The Fellowship of the Ring",
+    "author": "J.R.R. Tolkien",
+    "likes": 3890,
     "liked": false,
-    "price": 12.30,
-    "publishedYear": 2022,
-    "genre": "Science-Fiction",
-    "bookCover": "./assets/img/",
+    "price": 12.99,
+    "publishedYear": 1954,
+    "genre": "Fantasy",
+    "bookCover": "./assets/img/04_bookcover/lotr_1.png",
     "comments": [
       {
         "name": "BücherLiebhaber",
@@ -126,14 +126,14 @@ let books = [
     ]
   },
   {
-    "name": "Jenseits der Sterne",
-    "author": "Oliver Schwarz",
+    "name": "The Two Towers",
+    "author": "J.R.R. Tolkien",
     "likes": 1450,
     "liked": false,
-    "price": 21.00,
-    "publishedYear": 2015,
-    "genre": "Science-Fiction",
-    "bookCover": "./assets/img/",
+    "price": 21.99,
+    "publishedYear": 1954,
+    "genre": "Fantasy",
+    "bookCover": "./assets/img/04_bookcover/lotr_2.png",
     "comments": [
       {
         "name": "Leser123",
@@ -142,42 +142,18 @@ let books = [
     ]
   },
   {
-    "name": "Das verborgene Königreich",
-    "author": "Elena Gold",
+    "name": "The Return of the King",
+    "author": "J.R.R. Tolkien",
     "likes": 920,
     "liked": false,
-    "price": 17.50,
-    "publishedYear": 2020,
+    "price": 17.49,
+    "publishedYear": 1955,
     "genre": "Fantasy",
-    "bookCover": "./assets/img/",
+    "bookCover": "./assets/img/04_bookcover/lotr_3.png",
     "comments": [
       {
         "name": "Bookworm92",
         "comment": "Ein faszinierendes Buch, das mich von der ersten Seite an gefesselt hat."
-      }
-    ]
-  },
-  {
-    "name": "Liebe in Zeiten des Krieges",
-    "author": "Emilia Rot",
-    "likes": 1800,
-    "liked": false,
-    "price": 19.99,
-    "publishedYear": 2016,
-    "genre": "Romantik",
-    "bookCover": "./assets/img/",
-    "comments": [
-      {
-        "name": "Bibliophile23",
-        "comment": "Die Fantasiewelt war so lebendig, ich konnte das Buch kaum aus der Hand legen."
-      },
-      {
-        "name": "StorySeeker",
-        "comment": "Eine unglaublich berührende Liebesgeschichte, die mich tief bewegt hat."
-      },
-      {
-        "name": "SciFiExplorer",
-        "comment": "Spannende Zukunftsvisionen und interessante Charaktere machten diesen Roman einzigartig."
       }
     ]
   }

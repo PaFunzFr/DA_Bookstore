@@ -221,6 +221,9 @@ header {
     align-items: flex-end;
 }
 
+.favorite-btn:hover {
+    cursor: pointer;
+}
 /* LOGIN */
 .welcome-login {
     display: flex;
@@ -287,6 +290,7 @@ main {
 .book-card {
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     padding: 20px 0px;
     min-width: 265px;
     max-width: 23.3%;
@@ -369,6 +373,24 @@ h3 {
     overflow-y: auto;
     background-color: var(--color-quintial);
     padding: 5px;
+}
+
+.comment-input,
+.comment-btn {
+    color: rgb(118, 118, 118);
+    background-color: var(--color-secondary);
+    border: 1px solid var(--color-quaternary);
+    padding: 5px;
+}
+
+.comment-btn {
+    font-family: 'Acme';
+    transition: all 0.3s ease;
+}
+
+.comment-btn:hover {
+    background-color: rgb(68, 141, 190);
+    color: var(--color-secondary);
 }
 
 tr {
@@ -478,6 +500,7 @@ footer {
     }
     .book-card {
         padding: 10px 0px;
+        margin: 10px 0;
     }
     .book-img {
         height: 160px;
