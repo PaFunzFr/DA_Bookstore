@@ -19,6 +19,15 @@ function renderHeader() {
     `;
 }
 
+function renderLoginScreen() {
+    document.getElementById('loginSection').innerHTML = `
+        <h2 class="welcome-title">Welcome to My Library</h2>
+        <p>Please login with your <span class="highlighted">Username</span><br>to write comments</p>
+        <input class="login-input" id="loginName" maxlength="10"></input>
+        <button class="login-button" onclick="loginUser()">Login</button>
+    `;
+}
+
 function renderBookCard(index) {
     document.getElementById('bookContent').innerHTML += `
      <span class="book-card">
@@ -35,11 +44,11 @@ function renderBookCard(index) {
                     </div>
                     <table class="author-section">
                         <tr>
-                            <td>Autor:</td>
+                            <td>Author:</td>
                             <td class="book-author">${books[index].author}</td>
                         </tr>
                         <tr>
-                            <td>Veröffentlicht:</td>
+                            <td>Published:</td>
                             <td class="book-year">${books[index].publishedYear}</td>
                         </tr>
                         <tr>
@@ -48,7 +57,7 @@ function renderBookCard(index) {
                         </tr>
                     </table>
                     <div class="h-line"></div>
-                    <h3>Kommentare</h3>
+                    <h3>Comments</h3>
                     <table class="comment-section id="commentsContainer${index}">
                         ${showAllComments(index)}
                     </table>

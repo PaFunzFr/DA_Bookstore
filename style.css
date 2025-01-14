@@ -69,9 +69,9 @@
     --color-secondary: #303030;
     --color-tertiary: #5f514d;
     --color-quaternary: #989898;
-    --color-quintial: #a4998e;
+    --color-quintial: rgb(114, 137, 152);
     --color-quaternary-trans: rgba(227, 163, 45, 0.653);
-    --color-fonts: #dbe7f1;
+    --color-fonts: #f0f0f0;
 
     --margin-vertical: 40px;
     --margin-horizontal: 100px;
@@ -124,6 +124,7 @@ h1 {
     letter-spacing: 3px;
     margin: 0;
     padding: 0;
+    color: rgb(68, 141, 190);
 }
 
 h1 span {
@@ -133,11 +134,13 @@ h1 span {
 h2 {
     margin: 0;
     font-family: 'Acme';
+    color: rgb(30, 41, 58);
 }
 
 h3 {
     margin: 0px;
     font-family: 'Acme';
+    color: rgb(30, 41, 58);
 }
 
 .book-title {
@@ -155,7 +158,7 @@ ul {
 
 a {
     text-decoration: none;
-    color: white;
+    color: rgb(168, 168, 168);
     transition: all 0.4s ease;
 }
 
@@ -187,9 +190,9 @@ header {
     position: fixed;
     width: 100%;
     justify-content: center;
-    height: var(--header-height);
+    max-height: var(--header-height);
     background-color: var(--color-secondary);
-    border-bottom: 2px solid var(--color-quaternary);
+    border-bottom: 2px solid var(--color-quintial);
     z-index: 99;
 }
 
@@ -233,6 +236,10 @@ header {
     background-color: var(--color-secondary);
     z-index: 3;
     text-align: center;
+}
+
+.welcome-title {
+    color: var(--color-quintial);
 }
 
 .highlighted {
@@ -299,8 +306,8 @@ main {
 .h-line {
     width: 100%;
     height: 2px;
-    background-color: var(--color-tertiary);
-    opacity: 0.5;
+    background-color: var(--color-quintial);
+    opacity: 0.3;
     margin: 14px 0;
 }
 
@@ -458,57 +465,27 @@ footer {
         padding-bottom: 0px;
     }
 
-    .img-container {
-        gap: calc(1vw + 5px) 2%;
-    }
-
-    .card-wrapper {
-        width: 31.3%;
-    }
-
-    .card-wrapper::after,
-    .card-wrapper::before {
-        padding: 4px;
-    }
-
-    .btn-close-slider {
-        display: flex;
-        width: 45px;
-        height: 45px;
-        border-radius: 14px;
-        font-size: 24px;
-    }
-
-    .overlay-content img {
-        max-height: 450px;
-    }
-
-    .slider li {
-        height: 450px;
-    }
 }
 
 @media screen and (max-width: 500px) {
-    .img-container {
-        gap: calc(1vw + 5px) 2%;
-    }
 
-    .card-wrapper {
-        width: 47%;
+    :root {
+        --header-height: 60px;
+        --margin-vertical: 24px;
+        --margin-books: 10px;
+        font-size: 12px;
+    }  
+    h2 {
+        font-size: 18px;
     }
-
-    .card-wrapper::after,
-    .card-wrapper::before {
-        padding: 3px;
+    .book-card {
+        padding: 10px 0px;
     }
-
-    .overlay-content img {
-        max-height: 300px;
+    .book-img {
+        height: 160px;
     }
-
-    .slider li {
-        width: 70px;
-        height: 300px;
+    .h-line {
+        margin: 8px 0;
     }
 }
 

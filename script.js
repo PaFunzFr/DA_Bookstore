@@ -1,5 +1,6 @@
 function renderInit() {
   renderHeader();
+  renderLoginScreen();
   renderAllBookCards();
   renderFooter();
   loadDataBase()
