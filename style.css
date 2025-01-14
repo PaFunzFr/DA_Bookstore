@@ -218,9 +218,7 @@ header {
 .nav-bar {
     display: flex;
     gap: 10px;
-    height: 100%;
     align-items: flex-end;
-    padding-bottom: 55px;
 }
 
 /* LOGIN */

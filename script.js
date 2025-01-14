@@ -125,7 +125,7 @@ function scaleOnHoverOut(event) {
 
 function checkUserLogin() {
   let user = JSON.parse(localStorage.getItem("user"));
-  if (user && user !== "") {
+  if (user) {
     closeLoginMenu();
   } else {
     hideElementsHeader();
