@@ -81,13 +81,16 @@ function clickHeartIcon(event, index) {
   if (!likesData.liked) {
     makeFavorite(index, likesData);
     popColorScale(event);
+    refreshSingleCard(index);
   } else {
     noFavorite(index, likesData);
     popColorScale(event);
     setTimeout(function () {
       showEmptyHeart(event);
     }, 200);
+    refreshSingleCard(index);
   }
+
 }
 
 function makeFavorite(index, likesData) {
@@ -96,7 +99,6 @@ function makeFavorite(index, likesData) {
   currentLikes++;
   let likeObject = likeObjectTemplate(currentLikes, true, "full");
   localStorage.setItem(`bookLikes${index}`, JSON.stringify(likeObject));
-  renderAllBookCards(index);
 }
 
 function noFavorite(index, likesData) {
@@ -105,7 +107,6 @@ function noFavorite(index, likesData) {
   currentLikes--;
   let likeObject = likeObjectTemplate(currentLikes, false, "empty");
   localStorage.setItem(`bookLikes${index}`, JSON.stringify(likeObject));
-  renderAllBookCards(index);
 }
 
 function popColorScale(event) {

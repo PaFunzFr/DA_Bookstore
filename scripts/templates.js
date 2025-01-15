@@ -31,6 +31,14 @@ function renderLoginScreen() {
 function renderBookCard(index) {
     document.getElementById('bookContent').innerHTML += `
     <span class="book-card" id="bookCard${index}">
+    </span>
+    `
+    refreshSingleCard(index);
+}
+
+function refreshSingleCard(index) {
+    document.getElementById(`bookCard${index}`).innerHTML = ``;
+    document.getElementById(`bookCard${index}`).innerHTML += `
         <h2 class="book-title">${books[index].name}</h2>
         <div class="h-line"></div>
         <img src=${books[index].bookCover} alt="" class="book-img" title="">
@@ -65,9 +73,9 @@ function renderBookCard(index) {
                 <input class="comment-input" id="commentField${index}" onclick="emptyValue(event)" value="post your Comment..."></input>
                 <button class="comment-btn" onclick="postComment(${index})">submit</button>
         </div>
-    </span>
     ` 
 }
+
 
 function renderFooter() {
     document.getElementById('footer').innerHTML = `
