@@ -7,15 +7,17 @@ function renderInit() {
   checkUserLogin();
 }
 
+// INITIALIZING WHOLE JSON TO LOCALSTORAGE
+/*
+let allBooksToStorage = localStorage.setItem("bookDB", JSON.stringify(books));
+console.log(JSON.parse(localStorage.getItem("bookDB")));
+*/
+
 // initialize json data (likes & comments) to localStorage
 // only adding if there is a new key for storage => (!localStorage.getItem(key))
 function loadDataBase() {
   for (i = 0; i < books.length; i++) {
-    let likeObject = {
-      likes: books[i].likes,
-      liked: books[i].liked,
-      heartIcon: "./assets/img/03_icons/heart-empty.png",
-    };
+    likeObjectTemplate(books[i].likes, books[i].liked, "empty");
     if (!localStorage.getItem(`bookLikes${i}`)) {
       localStorage.setItem(`bookLikes${i}`, JSON.stringify(likeObject));
     }
@@ -90,7 +92,6 @@ function clickHeartIcon(event, index) {
     }, 200);
     refreshSingleCard(index);
   }
-
 }
 
 function makeFavorite(index, likesData) {
@@ -180,12 +181,21 @@ function resetFavorites() {
   }
 }
 
+clickedFavorites = false;
 function showFavorites() {
-  for (i = 0; i < books.length; i++) {
-    let likesData = JSON.parse(localStorage.getItem(`bookLikes${i}`));
-    if (!likesData.liked) {
-      document.getElementById(`bookCard${i}`).style.display = "none";
+  if (!clickedFavorites) {
+    clickedFavorites = true;
+    document.querySelector(".favorite-btn").innerText = "All Books";
+    for (i = 0; i < books.length; i++) {
+      let likesData = JSON.parse(localStorage.getItem(`bookLikes${i}`));
+      if (!likesData.liked) {
+        document.getElementById(`bookCard${i}`).style.display = "none";
+      }
     }
+  } else {
+    clickedFavorites = false;
+    document.querySelector(".favorite-btn").innerText = "Favorites";
+    renderAllBookCards();
   }
 }
 
