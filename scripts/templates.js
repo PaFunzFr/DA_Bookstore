@@ -12,7 +12,7 @@ function renderHeader() {
                     <li class="hide-on-logout">|</li>
                     <li id="currentUser" class="hide-on-logout">${JSON.parse(localStorage.getItem("user")) || []}</li>
                     <li class="hide-on-logout">|</li>
-                    <li id="logoutBtn" class="logout-button hide-on-logout" onclick="userLogout()">logout</li>
+                    <li id="logoutBtn" class="logout-btn hide-on-logout" onclick="userLogout()">logout</li>
                 </ul>
             </div>
         </section>
@@ -24,7 +24,7 @@ function renderLoginScreen() {
         <h2 class="welcome-title">Welcome to My Library</h2>
         <p>Please login with your <span class="highlighted">Username</span><br>to write comments</p>
         <input class="login-input" id="loginName" maxlength="10"></input>
-        <button class="login-button" onclick="loginUser()">Login</button>
+        <button class="login-btn" onclick="loginUser()">Login</button>
     `;
 }
 
@@ -81,7 +81,7 @@ function renderFooter() {
                     </li>
                     <li>
                         <a href="https://www.instagram.com" target="_blank">
-                            <img src="./assets/img/02_footer/Instagram.png" alt="">
+                            <img src="./assets/img/02_footer/instagram.png" alt="">
                         </a>
                     </li>
                     <li>

@@ -65,44 +65,34 @@
     scroll-behavior: smooth;
 
     /* VARIABLES */
-    --color-primary: #d3d3d3;
+    --color-primary: #021320;
     --color-secondary: #303030;
     --color-tertiary: #5f514d;
     --color-quaternary: #989898;
     --color-quintial: rgb(114, 137, 152);
     --color-quaternary-trans: rgba(227, 163, 45, 0.653);
     --color-fonts: #f0f0f0;
-
     --margin-vertical: 40px;
     --margin-horizontal: 100px;
     --margin-books: 20px;
-
     --border-radius: 1vmin;
-
     --header-height: 100px;
-
     font-size: 14px;
-
 }
 
 /* SCROLL BAR */
-
-/* width */
 ::-webkit-scrollbar {
     width: 8px;
 }
 
-/* Track */
 ::-webkit-scrollbar-track {
     background: rgba(63, 35, 26, 0.445);
 }
 
-/* Handle */
 ::-webkit-scrollbar-thumb {
     background: var(--color-secondary);
 }
 
-/* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
     background: var(--color-quaternary);
 }
@@ -120,7 +110,7 @@ body {
 
 h1 {
     font-family: 'Acme';
-    font-size: 50px;
+    font-size: 40px;
     letter-spacing: 3px;
     margin: 0;
     padding: 0;
@@ -180,6 +170,7 @@ a:hover {
 .show-mobile {
     display: none;
 }
+
 .flex-shown {
     display: flex;
 }
@@ -192,7 +183,7 @@ header {
     justify-content: center;
     max-height: var(--header-height);
     background-color: var(--color-secondary);
-    border-bottom: 2px solid var(--color-quintial);
+    border-bottom: 1px solid var(--color-quintial);
     z-index: 99;
 }
 
@@ -224,6 +215,7 @@ header {
 .favorite-btn:hover {
     cursor: pointer;
 }
+
 /* LOGIN */
 .welcome-login {
     display: flex;
@@ -240,7 +232,8 @@ header {
 }
 
 .welcome-title {
-    color: var(--color-quintial);
+    color: rgb(68, 141, 190);
+    font-size: 36px;
 }
 
 .highlighted {
@@ -251,19 +244,40 @@ header {
 .login-input {
     resize: none;
     height: 20px;
+    border-radius: 5px;
 }
 
-.login-button {
+.login-btn {
     margin-top: 30px;
+    font-family: 'Acme';
+    font-size: 30px;
+    border-radius: 2vmin;
+    border: 1px solid var(--color-quaternary);
+    color: var(--color-secondary);
+    letter-spacing: 3px;
+    padding: 10px 20px;
+    background-color: var(--color-primary);
+    transition: all 0.3s ease;
 }
 
-.logout-button {
-    font-weight: bold;
-}
-
-.logout-button:hover {
+.login-btn:hover {
     cursor: pointer;
+    background-color: rgb(68, 141, 190);
+
 }
+
+.logout-btn,
+.favorite-btn {
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.logout-btn:hover,
+.favorite-btn:hover {
+    cursor: pointer;
+    color: rgb(68, 141, 190);
+}
+
 /* MAIN */
 main {
     display: none;
@@ -391,6 +405,7 @@ h3 {
 .comment-btn:hover {
     background-color: rgb(68, 141, 190);
     color: var(--color-secondary);
+    cursor: pointer;
 }
 
 tr {
@@ -494,17 +509,21 @@ footer {
         --margin-vertical: 24px;
         --margin-books: 10px;
         font-size: 12px;
-    }  
+    }
+
     h2 {
         font-size: 18px;
     }
+
     .book-card {
         padding: 10px 0px;
         margin: 10px 0;
     }
+
     .book-img {
         height: 160px;
     }
+
     .h-line {
         margin: 8px 0;
     }
