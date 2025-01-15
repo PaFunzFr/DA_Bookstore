@@ -19,7 +19,7 @@ console.log(JSON.parse(localStorage.getItem("bookDB")));
 // only adding if there is a new key for storage => (!localStorage.getItem(key))
 function loadDataBase() {
   for (i = 0; i < books.length; i++) {
-    likeObjectTemplate(books[i].likes, books[i].liked, "empty");
+    let likeObject = likeObjectTemplate(books[i].likes, books[i].liked, "empty");
     if (!localStorage.getItem(`bookLikes${i}`)) {
       localStorage.setItem(`bookLikes${i}`, JSON.stringify(likeObject));
     }
