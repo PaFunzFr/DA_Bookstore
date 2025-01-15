@@ -7,6 +7,8 @@ function renderInit() {
   checkUserLogin();
 }
 
+let clickedFavorites = false;
+
 // INITIALIZING WHOLE JSON TO LOCALSTORAGE
 /*
 let allBooksToStorage = localStorage.setItem("bookDB", JSON.stringify(books));
@@ -181,21 +183,24 @@ function resetFavorites() {
   }
 }
 
-clickedFavorites = false;
 function showFavorites() {
   if (!clickedFavorites) {
     clickedFavorites = true;
     document.querySelector(".favorite-btn").innerText = "All Books";
-    for (i = 0; i < books.length; i++) {
-      let likesData = JSON.parse(localStorage.getItem(`bookLikes${i}`));
-      if (!likesData.liked) {
-        document.getElementById(`bookCard${i}`).style.display = "none";
-      }
-    }
+    isolateFavorites()
   } else {
     clickedFavorites = false;
     document.querySelector(".favorite-btn").innerText = "Favorites";
     renderAllBookCards();
+  }
+}
+
+function isolateFavorites() {
+  for (i = 0; i < books.length; i++) {
+    let likesData = JSON.parse(localStorage.getItem(`bookLikes${i}`));
+    if (!likesData.liked) {
+      document.getElementById(`bookCard${i}`).style.display = "none";
+    }
   }
 }
 
